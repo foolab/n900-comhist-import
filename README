@@ -1,0 +1,84 @@
+Simple N900 conversations importer for N9/N950.
+
+READ ALL THIS FILE before doing anything.
+
+WARNINGS:
+=========
+1) I used this tool once (Obvious). Consider it abandoned.
+2) Make sure you have no conversations. If you don't then you will get duplicates.
+3) Make sure the phone is set to offline mode (I don't know what will happen if you receive
+   a message while importing).
+4) Importing takes a LONG time. Find something to do meanwhile and make sure the phone is charged.
+5) Better to close messaging-ui otherwise it will consume precious CPU.
+
+
+Notes:
+======
+By default the tool will import only text messages. What gets imported is decided
+by the value of FILTER
+
+FILTER is a comma delimited string. If a local account UID matches any part then it will
+get imported:
+
+SMS: ring
+gtalk: 40gmail_2ecom0
+skype: skype
+twitter: twitter
+
+You figure out the rest by:
+sqlite3 /home/user/.rtcom-eventlogger/el-v1.db
+
+SELECT DISTINCT(local_uid) FROM Events WHERE service_id == 2 OR service_id == 3;
+
+If you need to import everything then change it to an empty string. It will import everything but
+I don't know how messaging-ui will handle that.
+
+I have twitter, gtalk, skype, facebook, sip and SMSs in my N900 but I'm interested only
+in importing SMSs so I set it to "ring"
+
+
+Aegis credentials:
+==================
+TrackerReadAccess
+TrackerWriteAccess
+GRP::metadata-users // Not sure about this.
+
+
+USAGE:
+======
+Compile via qmake && make (libsqlite3-dev and libcommhistory-dev).
+
+Copy the tool to the device along with el-v1.db from your N900 (Or from an N900 backup).
+Better to delete all conversations unless you can live with duplicates.
+
+./import el-v1.db
+
+Go find something to do.
+
+
+TODO:
+=====
+Packaging this when I'm not lazy.
+
+
+THANKS:
+=======
+Artem Garmash <artem dot garmash at nokia dot com>
+
+
+LICENSE:
+========
+Copyright (c) 2011 Mohammed Sameer <msameer@foolab.org>
+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
