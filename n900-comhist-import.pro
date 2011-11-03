@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = import
+TARGET = n900-comhist-import
 DEPENDPATH += .
 INCLUDEPATH += .
 
