@@ -1,0 +1,14 @@
+Source: n900-comhist-import
+Section: user/Other
+Priority: extra
+Maintainer: Mohammed Sameer <msameer@foolab.org>
+Build-Depends: debhelper (>= 7), libsqlite3-dev, libcommhistory-dev
+Standards-Version: 3.8.4
+Homepage: https://gitorious.org/n900-comhist-import/
+
+Package: n900-comhist-import
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Import N900 communication history
+  This tool tries to import the communication history from Nokia N900
+  to the Nokia N9/N950

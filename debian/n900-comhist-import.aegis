@@ -1,0 +1,8 @@
+<aegis>
+	<request policy="add">
+		<credential name="TrackerReadAccess" />
+		<credential name="TrackerWriteAccess" />
+		<credential name="GRP::metadata-users" /> <!-- TODO: Not sure about this. -->
+		<for path="/usr/bin/n900-comhist-import" />
+	</request>
+</aegis>
