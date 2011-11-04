@@ -10,4 +10,8 @@
 #export DH_VERBOSE=1
 
 %:
-	dh  $@
+	dh  $@ --buildsystem=qmake
+
+override_dh_builddeb:
+	dh_builddeb
+	aegis-deb-add -control debian/n900-comhist-import/DEBIAN/control .. debian/n900-comhist-import.aegis=_aegis
