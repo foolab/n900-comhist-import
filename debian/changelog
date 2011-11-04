@@ -1,3 +1,13 @@
+n900-comhist-import (0.2-1) unstable; urgency=low
+
+  * Packaging fixes:
+    - Install the aegis manifest file.
+    - The main binary was not included in the package
+  * Updated the README file.
+  * Improved the progress reporting a bit.
+
+ -- Mohammed Sameer <msameer@foolab.org>  Fri, 04 Nov 2011 20:41:01 +0200
+
 n900-comhist-import (0.1-1) unstable; urgency=low
 
   * Initial packaged release for N9.
