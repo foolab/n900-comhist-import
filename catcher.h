@@ -53,7 +53,7 @@ public:
         count = 0;
         stop = false;
         while(count < numEvents || (numEvents == 0 && !stop)) {
-            qDebug() << ".";
+	  fprintf(stderr, ".");
             QCoreApplication::instance()->processEvents(QEventLoop::WaitForMoreEvents);
         }
     };
@@ -65,7 +65,7 @@ public:
 
 public Q_SLOTS:
     void eventsCommittedSlot(QList<CommHistory::Event> committedEvents, bool success) {
-        qDebug() << Q_FUNC_INFO;
+        qDebug() << "\n" << count << "have been saved";
         ok = success;
         events = committedEvents;
         count += committedEvents.count();
@@ -74,8 +74,6 @@ public Q_SLOTS:
 
     void groupsCommittedSlot(QList<int> committedGroups, bool success) {
         Q_UNUSED(committedGroups);
-
-        qDebug() << Q_FUNC_INFO;
         ok = success;
         stop = true;
     }
