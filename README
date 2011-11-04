@@ -36,34 +36,21 @@ I don't know how messaging-ui will handle that.
 I have twitter, gtalk, skype, facebook, sip and SMSs in my N900 but I'm interested only
 in importing SMSs so I set it to "ring"
 
-
-Aegis credentials:
-==================
-TrackerReadAccess
-TrackerWriteAccess
-GRP::metadata-users // Not sure about this.
-
-
 USAGE:
 ======
-Compile via qmake && make (libsqlite3-dev and libcommhistory-dev).
-
-Copy the tool to the device along with el-v1.db from your N900 (Or from an N900 backup).
-Better to delete all conversations unless you can live with duplicates.
-
-./import el-v1.db
-
-Go find something to do.
-
-
-TODO:
-=====
-Packaging this when I'm not lazy.
+1) Build a package via dpkg-buildpackage -rfakeroot -I.git
+2) Install the package on your N9/N950
+3) Copy el-v1.db from your N900 (Or from an N900 backup).
+4) Better to delete all conversations unless you can live with duplicates.
+5) Make sure the messaging ui is closed.
+6) ./usr/bin/n900-comhist-import el-v1.db
+7) Go find something to do ;-)
 
 
 THANKS:
 =======
-Artem Garmash <artem dot garmash at nokia dot com>
+Artem Garmash <artem dot garmash at nokia dot com> for tips.
+lihamakaroonilaatikko <lihamakaroonilaatikko@gmail.com> for the initial packaging
 
 
 LICENSE:
