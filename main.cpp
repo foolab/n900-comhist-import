@@ -152,7 +152,7 @@ bool readDb(const char *path, QList<Event>& events) {
       Event e;
       e.setType(service_id == N900_SMS ? Event::SMSEvent : Event::IMEvent);
       e.setStartTime(start_time);
-      e.setEndTime(end_time);
+      e.setEndTime(end_time.toTime_t() != 0 ? end_time : start_time);
       e.setDirection(outgoing == true ? Event::Outbound : Event::Inbound);
       e.setIsDraft(false);
       e.setIsRead(true);
